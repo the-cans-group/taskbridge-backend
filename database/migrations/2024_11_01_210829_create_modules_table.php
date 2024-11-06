@@ -4,10 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
 return new class extends Migration
 {
-    public function up():void
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->uuid('id')->primary();
@@ -24,8 +26,12 @@ return new class extends Migration
             $table->foreign('catagory_id')->references('id')->on('catagories')->onDelete('cascade');
         });
     }
-    public function down():void{
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
         Schema::dropIfExists('modules');
     }
-
 };
