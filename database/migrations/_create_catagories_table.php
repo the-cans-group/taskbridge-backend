@@ -10,7 +10,7 @@ return new class extends Migration
 public function up(): void
 {
 
-    Schema::create('catagories', function (Blueprint $table) {
+    Schema::create('categories', function (Blueprint $table) {
         $table->uuid('id')->primary();
         $table->string('tenant_id');
         $table->string('name',20);
@@ -19,7 +19,6 @@ public function up(): void
         $table->string('icon')->nullable();
         $table->timestamps();
         $table->softDeletes();
-
     });
 }
 

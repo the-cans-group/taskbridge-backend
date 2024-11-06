@@ -21,7 +21,6 @@ return new class extends Migration
             $table->json('queue_users')->nullable();
             $table->timestamps();
             $table->softDeletes();
-
             $table->foreign('catagory_id')->references('id')->on('catagories')->onDelete('cascade');
         });
     }

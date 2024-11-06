@@ -12,7 +12,6 @@ return new class extends Migration{
             $table->string('description')->nullable();
             $table->string('file')->nullable();
             $table->string('link')->nullable();
-
             $table->tinyInteger('is_private')->comment('0-public, 1-private');
             $table->timestamps();
             $table->foreign('module_id')->references('id')->on('modules')->onDelete('cascade');
