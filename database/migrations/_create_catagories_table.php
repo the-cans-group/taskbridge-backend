@@ -19,6 +19,7 @@ public function up(): void
         $table->string('icon')->nullable();
         $table->timestamps();
         $table->softDeletes();
+
     });
 }
 
