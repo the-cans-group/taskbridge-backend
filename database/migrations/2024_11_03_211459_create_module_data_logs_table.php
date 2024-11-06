@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('module_data_logs', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->uuid('module_data_id');
+            $table->string('action_type');
+            $table->text('comment')->nullable();
+            $table->json('changes')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('module_data_id')->references('id')->on('module_data')->onDelete('cascade');
         });
     }
 

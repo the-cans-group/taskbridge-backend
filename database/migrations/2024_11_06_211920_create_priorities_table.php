@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('priorities', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('name');
+            $table->integer('day');
+            $table->integer('hour');
+            $table->integer('minute');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

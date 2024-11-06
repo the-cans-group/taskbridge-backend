@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('notification_settings', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->uuid('tenant_id');
+            $table->string('event_key'); // 'new_application_assigned', 'application_started' vb.
+            $table->boolean('notify_requester')->default(false);
+            $table->boolean('notify_assignee')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
